@@ -1,0 +1,46 @@
+*{
+  margin: 0;
+  padding:0;
+  box-sizing: border-box;
+}
+body{
+  display: grid;
+  place-items: center;
+  height: 100vh;
+  background: #252525;
+  
+}
+
+#items-wrapper{
+  width: 100vw; 
+}
+
+img{
+  width: 100%; /*Respeitando as divs que o cercam*/
+  height: 100%;
+  object-fit: cover; /*cubra toda a visão a partir do que foi definida*/
+}
+
+#items{
+  display: flex; /*Um ao lado do outro*/
+  overflow-x: auto; /*cria um scrool de acordo com a div items-wrapper*/
+  scroll-snap-type: x mandatory;/*para ajeitar a imagem quando soltar o scrool*/
+  -webkit-overflow-scrolling: touch; /*Para que isso funcione em outros navegadores*/
+  scroll-behavior: smooth; /*suavidade do scroll*/
+  overflow: hidden; /*escondendo a barrinha de scroll*/
+}
+
+.item{
+  flex: none; /*Desfaz a formatação padrão do displax flex (altura, espaçamento, largura)*/
+  width: 100%; /*mudando aqui a largura das imgs se ajustam, ex: 50% = duas img, 34% = tres img etc*/
+  height: 600px;
+  scroll-snap-align: start;
+  pointer-events: none; /*Desabilita os eventos do cursor nos elementos items*/
+}
+
+/*
+Scrool-Snap: precisa de dois campos, um no componente pai e outro no filho
+scroll-snap-align: start; //Filho que inicia o start do scrool
+scroll-snap-type: x mandatory; //Pai que define o que ira acontecer
+
+*/
